@@ -44,7 +44,7 @@ const DropdownLinks = [
     }
 ]
 
-function Navbar(){
+function Navbar({ handleOrderPopup }){
     return (
         <div className="bg-white dark:bg-gray-900 
         dark:text-white duration-200 relative z-40">
@@ -102,7 +102,7 @@ function Navbar(){
                                         <ul className="space-y-2">
                                         {
                                             DropdownLinks.map((data, index) => (
-                                                <li>
+                                                <li key={index}>
                                                     <a 
                                                     className="text-gray-500
                                                     hover:text-black duration-200
@@ -141,7 +141,9 @@ function Navbar(){
                         </div>
 
                         {/* Order-button section */}
-                        <button className="relative p-3">
+                        <button 
+                        onClick={handleOrderPopup}
+                        className="relative p-3">
                             <FaShoppingCart className="text-xl
                             text-gray-600 dark:text-gray-400" 
                             />
